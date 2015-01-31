@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MaTravel CMS</title>
+	<meta charset="utf-8">
+	<!-- jQuery CDN -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+</head>
+
+
+<body>
+	<header class="container">
+      <section class="row">
+
+        <!-- navbar (admin)-->
+        <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#Matravel-navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">
+        				<img alt="Brand" src="img/logo.png">
+      				</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="Matravel-navbar-collapse">
+              <!-- admin forms -->
+							<div class="navbar-btn navbar-right">
+							  <button type="button" class="btn btn-defualt">Admin Forms</button>
+							  <button type="button" class="btn btn-defualt dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+							    <span class="glyphicon glyphicon-menu-down"></span>
+							    <span class="sr-only">Toggle Dropdown</span>
+							  </button>
+							  <ul class="dropdown-menu" role="menu">
+							    <li><a href="#">Add new country</a></li>
+							    <li><a href="#">Add booking sites</a></li>
+							    <li><a href="#">Add contact info</a></li>
+							  </ul>
+							</div>
+            </div>
+          </div>
+        </nav>
+      </section>
+    </header>
+
+
+	<main class="container">
+		<section class="row">
+
+			<!-- The admin form -->
+			<!-- <main class="container"> <section class="row"> ... -->
+			<!-- Add country -->
+			<section id="add_country" class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+				<form>
+					<div class="form-group">
+						<h2>Add a new country:</h2>
+					</div>
+
+					<div class="form-group">
+						<label for="coun_name">Name</label>
+						<input type="text" id="coun_name" class="form-control" placeholder="Country name ..." required>
+					</div>
+
+					<div class="form-group">
+						<label for="coun_body">Body</label>
+						<textarea id="coun_body" class="form-control" rows="8" placeholder="About the country ..." required></textarea>
+					</div>
+					<div class="row col-xs-6 col-xs-offset-0 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4">
+					<button type="submit" class="btn btn-success btn-lg btn-block">Save Page</button>
+					</div>
+				</form>
+			</section>
+
+
+		</section>
+
+
+
+	<main>
+		
+
+
+	<footer></footer>
+</body>
+
+
+
+
+
+
+</html>
