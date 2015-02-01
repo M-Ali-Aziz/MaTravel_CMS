@@ -21,7 +21,7 @@
 	<header class="container">
       <section class="row">
 
-        <!-- navbar (admin)-->
+        <!-- navbar (admin Forms)-->
         <nav class="navbar navbar-inverse">
           <div class="container-fluid">
             <div class="navbar-header">
@@ -53,6 +53,8 @@
             </div>
           </div>
         </nav>
+
+
       </section>
     </header>
 
@@ -60,24 +62,126 @@
 	<main class="container">
 		<section class="row">
 
-			<!-- The admin form -->
-			<!-- <main class="container"> <section class="row"> ... -->
-			<!-- Add country -->
-			<section id="add_country" class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+			<!-- The admin forms - - - - - - -  - - - -->
+			<!-- Add a new country form -->
+			<section id="add_country" class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
 				<form>
 					<div class="form-group">
-						<h2>Add a new country:</h2>
+						<h1>Add a new country</h1>
 					</div>
 
+					<!-- new country -->
 					<div class="form-group">
+						<h2>The country:</h2>
 						<label for="coun_name">Name</label>
 						<input type="text" id="coun_name" class="form-control" placeholder="Country name ..." required>
 					</div>
-
 					<div class="form-group">
 						<label for="coun_body">Body</label>
-						<textarea id="coun_body" class="form-control" rows="8" placeholder="About the country ..." required></textarea>
+						<textarea id="coun_body" class="form-control" rows="5" placeholder="About the country ..." required></textarea>
+					</div><br>
+
+					<!-- About this History -->
+					<div class="form-group">
+						<h2>History:</h2>
+						<label for="his_title">Title</label>
+						<input type="text" id="his_title" class="form-control" value='History' disabled>
 					</div>
+					<div class="form-group">
+						<label for="his_body">Body</label>
+						<textarea id="his_body" class="form-control" rows="5" placeholder="About country’s history ..." required></textarea>
+					</div><br>
+
+					<!-- About this Geography -->
+					<div class="form-group">
+						<h2>Geography:</h2>
+						<label for="geo_title">Title</label>
+						<input type="text" id="geo_title" class="form-control" value='Geography' disabled>
+					</div>
+					<div class="form-group">
+						<label for="geo_body">Body</label>
+						<textarea id="geo_body" class="form-control" rows="5" placeholder="About country’s geography ..." required></textarea>
+					</div><br>
+
+					<!-- About this Climate -->
+					<div class="form-group">
+						<h2>Climate:</h2>
+						<label for="cli_title">Title</label>
+						<input type="text" id="cli_title" class="form-control" value='Climate' disabled>
+					</div>
+					<div class="form-group">
+						<label for="cli_body">Body</label>
+						<textarea id="cli_body" class="form-control" rows="5" placeholder="About country’s Climate ..." required></textarea>
+					</div><br>
+
+					<!-- About this Capital -->
+					<div class="form-group">
+						<h2>Capital:</h2>
+						<label for="cap_title">Title</label>
+						<input type="text" id="cap_title" class="form-control" value='Capital' disabled>
+						<label for="cap_name">Name</label>
+						<input type="text" id="cap_name" class="form-control" placeholder='Capital name ...' required>
+					</div>
+					<div class="form-group">
+						<label for="cap_body">Body</label>
+						<textarea id="cap_body" class="form-control" rows="5" placeholder="About country’s Capital ..." required></textarea>
+					</div><br>
+
+					<!-- Top 5 sights -->
+					<div class="form-group">
+						<h2>Top 5 sights</h2>
+					</div>
+
+					<div class="form-group">
+						<h3>Top 1:</h3>
+						<label for="top1_name">Name</label>
+						<input type="text" id="top1_name" class="form-control" placeholder='Top 1 sight name ...' required>
+					</div>
+					<div class="form-group">
+						<label for="top1_body">Body</label>
+						<textarea id="top1_body" class="form-control" rows="5" placeholder="About country’s top 1 sight ..." required></textarea>
+					</div>
+
+					<div class="form-group">
+						<h3>Top 2:</h3>
+						<label for="top2_name">Name</label>
+						<input type="text" id="top2_name" class="form-control" placeholder='Top 2 sight name ...' required>
+					</div>
+					<div class="form-group">
+						<label for="top2_body">Body</label>
+						<textarea id="top2_body" class="form-control" rows="5" placeholder="About country’s top 2 sight ..." required></textarea>
+					</div>
+
+					<div class="form-group">
+						<h3>Top 3:</h3>
+						<label for="top3_name">Name</label>
+						<input type="text" id="top3_name" class="form-control" placeholder='Top 3 sight name ...' required>
+					</div>
+					<div class="form-group">
+						<label for="top3_body">Body</label>
+						<textarea id="top3_body" class="form-control" rows="5" placeholder="About country’s top 3 sight ..." required></textarea>
+					</div>
+
+					<div class="form-group">
+						<h3>Top 4:</h3>
+						<label for="top4_name">Name</label>
+						<input type="text" id="top4_name" class="form-control" placeholder='Top 4 sight name ...' required>
+					</div>
+					<div class="form-group">
+						<label for="top4_body">Body</label>
+						<textarea id="top4_body" class="form-control" rows="5" placeholder="About country’s top 4 sight ..." required></textarea>
+					</div>
+
+					<div class="form-group">
+						<h3>Top 5:</h3>
+						<label for="top5_name">Name</label>
+						<input type="text" id="top5_name" class="form-control" placeholder='Top 5 sight name ...' required>
+					</div>
+					<div class="form-group">
+						<label for="top5_body">Body</label>
+						<textarea id="top5_body" class="form-control" rows="5" placeholder="About country’s top 5 sight ..." required></textarea>
+					</div><br>
+
 					<div class="row col-xs-6 col-xs-offset-0 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4">
 					<button type="submit" class="btn btn-success btn-lg btn-block">Save Page</button>
 					</div>
@@ -85,10 +189,70 @@
 			</section>
 
 
-		</section>
+			<!-- Add booking sites form -->
+			<section id="add_booking" class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+				<form>
+					<div class="form-group">
+						<h1>Add a booking site</h1>
+					</div>
+					<!-- new booking site -->
+					<div class="form-group">
+						<h2>The travel agency:</h2>
+						<label for="book_name">Name</label>
+						<input type="text" id="book_name" class="form-control" placeholder="The travel agency name ..." required>
+					</div>
+					<div class="form-group">
+						<label for="book_body">Body</label>
+						<textarea id="book_body" class="form-control" rows="5" placeholder="About the travel agency ..." required></textarea>
+					</div>
+					<div class="form-group">
+						<label for="book_url">URL</label>
+						<input type='text' id="book_url" class="form-control" placeholder="www.example.com (The travel agency official site)" required>
+					</div><br>
+
+					<div class="row col-xs-6 col-xs-offset-0 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4">
+					<button type="submit" class="btn btn-success btn-lg btn-block">Save Page</button>
+					</div>
+				</form>
+			</section>
 
 
+			<!-- Add contact info form -->
+			<section id="add_contact" class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+				<form>
+					<div class="form-group">
+						<h1>Add contact info</h1>
+					</div>
+					<!-- new contact info -->
+					<div class="form-group">
+						<label for="ci_name">Name</label>
+						<input type="text" id="ci_name" class="form-control" placeholder="name ..." required>
+					</div>
+					<div class="form-group">
+						<label for="ci_body">Body</label>
+						<textarea id="ci_body" class="form-control" rows="3" placeholder="disciption (NOT required) ..."></textarea>
+					</div>
+					<div class="form-group">
+						<label for="ci_email">E-mail</label>
+						<input type='text' id="ci_email" class="form-control" placeholder="example@me.com" required>
+					</div>
+					<div class="form-group">
+						<label for="ci_tel">Telephone nr</label>
+						<input type='text' id="ci_tel" class="form-control" placeholder="020121212 / 0712345678" required>
+					</div>
+					<div class="form-group">
+						<label for="ci_address">Address</label>
+						<textarea id="ci_address" class="form-control" rows="2" placeholder="Road/Post code/City (NOT required) ..."></textarea>
+					</div><br>
 
+					<div class="row col-xs-6 col-xs-offset-0 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4">
+					<button type="submit" class="btn btn-success btn-lg btn-block">Save Info</button>
+					</div>
+				</form>
+			</section>
+
+
+		</section><br><br>
 	<main>
 		
 
