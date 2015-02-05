@@ -4,8 +4,8 @@
 // extends = useing all public functions in PDOHelper class
 class ContentQueries extends PDOHelper {
 
-	// function to save data to DB
-	public function saveNewPage($admin_add_data) {
+	// function to save new contactdata to DB
+	public function saveNewContact($admin_add_data) {
 
 		// sql query
 		$sql= "INSERT INTO contact_info (name, description, tel, email, address)
@@ -23,5 +23,13 @@ class ContentQueries extends PDOHelper {
 
     return true;
 	}
+
+	// function to get contact info from DB
+	public function getAllContactInfo() {
+    $sql = "SELECT name, description, tel, email, address FROM contact_info";
+    return $this->query($sql);
+  }
+
+
 
 }

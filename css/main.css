@@ -1,0 +1,16 @@
+#headerImage {
+	margin-top: -20px;
+}
+
+#headerImage img {
+	box-shadow:0px 2px 0px 0px black;
+}
+
+#ciText {
+	/*color: white;*/
+	margin-bottom: -10px;
+}
+
+.ciHolder {
+	margin-top: 20px;
+}
