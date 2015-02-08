@@ -11,8 +11,8 @@ $(function(){
 	$("#mainSection section").hide();
 
 	// hide and slideDown(show) the header img
-	$('#headerImage').hide();
-	$('#headerImage').slideDown(1000);
+	// $('#headerImage').hide();
+	// $('#headerImage').slideDown(1000);
 
 
 	// // hide the admin country form
