@@ -7,41 +7,48 @@ $(function(){
 		*
 	*/
 
+	// hide all sections in main tag
+	$("#mainSection section").hide();
+
 	// hide and slideDown(show) the header img
 	$('#headerImage').hide();
 	$('#headerImage').slideDown(1000);
 
 
-
-
-	// hide the admin country form
-	$('#add_country').hide();
-	// hide the admin booking form
-	$('#add_booking').hide();
-	// hide the admin contact form
-	$('#add_contact').hide();
+	// // hide the admin country form
+	// $('#add_country').hide();
+	// // hide the admin booking form
+	// $('#add_booking').hide();
+	// // hide the admin contact form
+	// $('#add_contact').hide();
 
 	// show the admin country form when click in the admin menu
 	$( "#addNewCounMenuLi" ).click(function() {
-		$('#add_booking').hide();
-		$('#add_contact').hide();
+		$("#mainSection section").hide();
+		$("footer").hide();
+		// $('#add_booking').hide();
+		// $('#add_contact').hide();
 		return $('#add_country').show();
 	});
 
 	// show the admin contact form when click in the admin menu
 	$( "#addBookingMenuLi" ).click(function() {
-		$('#add_country').hide();
-		$('#add_contact').hide();
+		$("#mainSection section").hide();
+		$("footer").hide();
+		// $('#add_country').hide();
+		// $('#add_contact').hide();
 		return $('#add_booking').show();
 	});
 
 	// show the admin contact form when click in the admin menu
 	$( "#addContactMenuLi" ).click(function() {
-		$('#add_country').hide();
-		$('#add_booking').hide();
+		$("#mainSection section").hide();
+		$("footer").hide();
+		// $('#add_country').hide();
+		// $('#add_booking').hide();
 		return $('#add_contact').show();
 	});
-// ------------------------------------------------------------------------------
+	// ------------------------------------------------------------------------------
 
 
 	/*
@@ -62,7 +69,7 @@ $(function(){
 			":email" : $(this).find('#ci_email').val(),
 			":address" : $(this).find('#ci_address').val()
 		};
-		console.log('adminContactInfo: ', adminContactInfo);
+		// console.log('adminContactInfo: ', adminContactInfo);
 		/*
 		 * or do it with .each()
 		// get what the input and textara taps contain
@@ -81,11 +88,11 @@ $(function(){
 			dataType: "json",
 			data:{
 
-				"admin_add_data" : adminContactInfo
+				"admin_add_contacts" : adminContactInfo
 			},
 			success : function(data){
 				console.log('success contact data: ', data);
-				// alert('Your contacts info has been saved!');
+				alert('Your contacts info has been saved!');
 			},
 			error : function(data){
 				console.log('error contact data: ', data);
@@ -104,12 +111,14 @@ $(function(){
 	// --- GET data from DB and print to html ---
 
 	//function to get contact info from DB.
-	function getContactInfo(sthData) {
+	function getContactInfo(admin_add_contacts) {
 		$.ajax({
 			url: "php/get_content.php",
 			type: "get",
 			dataType: "json",
-			data: "",
+			data:{
+				"admin_add_contacts" : "admin_add_contacts"
+				},
 			success: getAllContactInfo,
 			error: function(data) {
 				console.log("getContactInfo error: ", data.responseText);
@@ -117,9 +126,9 @@ $(function(){
 		});
 	}
 
-	//function to list new cintact info footer(HTML)
+	//function to list new contact info footer(HTML)
 	function getAllContactInfo(data) {
-		// console.log("listAllPages success(data): ", data);
+		// console.log("getAllContactInfo success(data): ", data);
 
 		//remove all div in <section id="ciFooter"/>
 		$("#ciFooter div").remove();
@@ -140,8 +149,107 @@ $(function(){
 		}
 	}
 
-	// Run function to list all contact info on footer
+	// Run function to print all contact info on footer
 	getContactInfo();
+	// ------------------------------------------------------------------------------
+
+
+	/*
+		*
+		* post and get Booking sites info
+		*
+	*/
+
+	// --- POST data to DB ---
+
+	// Add submit handler for Booking sites info
+	$('#add_booking form').submit(function(){
+		// make the info as an array
+		var adminBookingInfo = {
+			":name" : $(this).find("#book_name").val(),
+			":body" : $(this).find("#book_body").val(),
+			":url" : $(this).find("#book_url").val()
+		};
+		// console.log("adminBookingInfo: ",adminBookingInfo);
+
+		//AJAX call to send adminBookingInfo data to DB
+		$.ajax({
+			url : "php/save_content.php",
+			type : "post",
+			dataType : "json",
+			data : {
+				"admin_add_booking" : adminBookingInfo
+			},
+			success : function(data){
+				console.log("success booking data: ", data);
+				alert('Your booking site info has been saved!');
+			},
+			error : function(data){
+				console.log("error booking data: ", data);
+			}
+
+		});
+
+		// clean up the form inputs in the end
+		this.reset();
+		
+
+		return false;
+	});
+
+
+	// --- GET data from DB and print to html ---
+
+	//function to get booking sites info from DB.
+	function getBookingInfo(admin_add_booking){
+		$.ajax({
+			url : "php/get_content.php",
+			type : "get",
+			dataType : "json",
+			data : {
+				"admin_add_booking" : "admin_add_booking"
+			},
+			success : getAllBookingInfo,
+			error: function(data) {
+				console.log("getContactInfo error: ", data.responseText);
+			}
+		});
+	}
+
+	//function to list new booking sites info to(HTML)
+	function getAllBookingInfo(data){
+		// console.log("getBookingInfo data: ", data);
+
+		// remove all section in <section id="booking_content">
+		$('#booking_content section').remove();
+		// loop throw all booking info fron DB
+		for (var i = 0; i < data.length; i++) {
+			for (var obj in data[i]){
+				// build html tag to print the booking info
+				var newBookingInfo = $('<section/>');
+				newBookingInfo.append('<div class="jumbotron">'+'<h1>'+data[i].name+'</h1>'+
+				'<p>'+data[i].body+'</p>'+'<p>'+'<a class="btn btn-info btn-lg" href="'+
+				data[i].url+'"'+'target="_blank" role="button">'+'Find your ticket'+
+				'</a>'+'</p>'+'</div>');
+			}
+				// just for testing
+				// console.log("data[i]: ",data[i]);
+				// console.log("data[i].name: ",data[i].name);
+				// console.log("data[i].body: ",data[i].body);
+				// console.log("data[i].url: ",data[i].url);
+				
+			// show and print booking data
+			$("#booking_content").show();
+			$('#booking_content').append(newBookingInfo);
+		}
+	}
+
+	// Run function to print all booking sites info to html
+	getBookingInfo();
+
+
+
+
 	// ------------------------------------------------------------------------------
 
 
