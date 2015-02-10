@@ -33,13 +33,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#">
+              <a class="navbar-brand" href="index.html">
         				<img alt="Brand" src="img/logo.png">
       				</a>
             </div>
 
             <div class="collapse navbar-collapse" id="Matravel-navbar-collapse">
-              <!-- admin forms -->
+              <!-- admin forms
 							<div class="navbar-btn navbar-right">
 							  <button type="button" class="btn btn-defualt">Admin Forms</button>
 							  <button type="button" class="btn btn-defualt dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -51,7 +51,37 @@
 							    <li id='addBookingMenuLi'><a href="#">Add booking sites</a></li>
 							    <li id='addContactMenuLi'><a href="#">Add contact info</a></li>
 							  </ul>
+							</div>  -->
+
+							<!-- Menu kinks -->
+							<ul class="nav navbar-nav">
+							  <li class="active"><a href="index.html">Home <span class="sr-only">(current)</span></a></li>
+							  <li class="dropdown">
+							    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Countries<span class="caret"></span></a>
+							    <ul class="dropdown-menu" role="menu">
+							      <li><a href="#">.....</a></li>
+							      <li><a href="#">.....</a></li>
+							      <li><a href="#">.....</a></li>
+							    </ul>
+							  </li>
+							  <li><a id="bookingMenuLink" onclick="showBookingsSites_onClick()" href="#">Bookings</a></li>
+							  <li><a href="#contactFooter">Contacts</a></li>
+							</ul>
+
+							<!-- admin forms -->
+							<div class="navbar-btn navbar-right">
+							  <button type="button" class="btn btn-defualt btn-sm">Admin Forms</button>
+							  <button type="button" class="btn btn-defualt dropdown-toggle btn-sm" data-toggle="dropdown" aria-expanded="false">
+							    <span class="glyphicon glyphicon-menu-down"></span>
+							    <span class="sr-only">Toggle Dropdown</span>
+							  </button>
+							  <ul class="dropdown-menu" role="menu">
+							    <li id='addNewCounMenuLi'><a href="#">Add new country</a></li>
+							    <li id='addBookingMenuLi'><a href="#">Add booking sites</a></li>
+							    <li id='addContactMenuLi'><a href="#">Add contact info</a></li>
+							  </ul>
 							</div>
+
             </div>
           </div>
         </nav>
@@ -282,7 +312,7 @@
 		
 
 
-	<footer class="container-fluit">
+	<footer id="contactFooter"class="container-fluit">
 		<section class='row'>
 
 

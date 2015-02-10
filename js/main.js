@@ -22,6 +22,13 @@ $(function(){
 	// // hide the admin contact form
 	// $('#add_contact').hide();
 
+	function showBookingsSites_onClick(){
+		$("#mainSection section").hide();
+		$("#bookingMenuLink").click(function(){
+		$("booking_content").show();
+		});
+	}
+
 	// show the admin country form when click in the admin menu
 	$( "#addNewCounMenuLi" ).click(function() {
 		$("#mainSection section").hide();
@@ -239,17 +246,12 @@ $(function(){
 				// console.log("data[i].url: ",data[i].url);
 				
 			// show and print booking data
-			$("#booking_content").show();
 			$('#booking_content').append(newBookingInfo);
 		}
 	}
 
 	// Run function to print all booking sites info to html
 	getBookingInfo();
-
-
-
-
 	// ------------------------------------------------------------------------------
 
 
