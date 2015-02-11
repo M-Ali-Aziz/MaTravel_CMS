@@ -22,12 +22,22 @@ $(function(){
 	// // hide the admin contact form
 	// $('#add_contact').hide();
 
-	function showBookingsSites_onClick(){
+	// function showBookingsSites_onClick(){
+	// 	$("#mainSection section").hide();
+	// 	$("#bookingMenuLink").click(function(){
+	// 	$("booking_content").show();
+	// 	});
+	// }
+
+	// show the admin country form when click in the admin menu
+	$( "#bookingMenuLink" ).click(function() {
 		$("#mainSection section").hide();
-		$("#bookingMenuLink").click(function(){
-		$("booking_content").show();
-		});
-	}
+		$("footer").show();
+		// $('#add_booking').hide();
+		// $('#add_contact').hide();
+		$('section #booking_content').show();
+		return getBookingInfo();
+	});
 
 	// show the admin country form when click in the admin menu
 	$( "#addNewCounMenuLi" ).click(function() {
