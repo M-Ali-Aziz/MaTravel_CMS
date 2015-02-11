@@ -2,17 +2,13 @@
 $(function(){
 
 	/*
-		*
-		*Hide and show 
+		*Help functions
+		*Hide/show/active
 		*
 	*/
 
 	// hide all sections in main tag
 	$("#mainSection section").hide();
-
-	// hide and slideDown(show) the header img
-	// $('#headerImage').hide();
-	// $('#headerImage').slideDown(1000);
 
 
 	// // hide the admin country form
@@ -21,13 +17,6 @@ $(function(){
 	// $('#add_booking').hide();
 	// // hide the admin contact form
 	// $('#add_contact').hide();
-
-	// function showBookingsSites_onClick(){
-	// 	$("#mainSection section").hide();
-	// 	$("#bookingMenuLink").click(function(){
-	// 	$("booking_content").show();
-	// 	});
-	// }
 
 	// show the admin country form when click in the admin menu
 	$( "#bookingMenuLink" ).click(function() {
@@ -65,6 +54,16 @@ $(function(){
 		// $('#add_booking').hide();
 		return $('#add_contact').show();
 	});
+
+	// main menu active effect function
+	$(function() {
+   $("#menuMainUL li").click(function() {
+      // remove classes from all
+      $("li").removeClass("active");
+      // add class to the one we clicked
+      $(this).addClass("active");
+   });
+  });
 	// ------------------------------------------------------------------------------
 
 
