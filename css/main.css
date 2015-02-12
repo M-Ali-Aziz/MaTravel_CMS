@@ -14,3 +14,19 @@
 .ciHolder {
 	margin-top: 20px;
 }
+
+
+/*home page photo gallery styling */
+#homePageGallery ul {         
+  padding:0 0 0 0;
+  margin:0 0 0 0;
+}
+#homePageGallery ul li {     
+  list-style:none;
+  margin-bottom:25px;           
+}
+#homePageGallery ul li img {
+  cursor: pointer;
+  width: 280px;
+  height: 180px;
+}

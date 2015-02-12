@@ -7,8 +7,12 @@ $(function(){
 		*
 	*/
 
-	// hide all sections in main tag
+	// hide all sections in main tag 
 	$("#mainSection section").hide();
+
+
+	
+	$("#homePageGallery").show();
 
 
 	// // hide the admin country form
