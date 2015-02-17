@@ -9,4 +9,6 @@ if (isset($_REQUEST["admin_add_contacts"])) {
 echo(json_encode($cq->getAllContactData()));
 }elseif (isset($_REQUEST["admin_add_booking"])) {
 echo(json_encode($cq->getAllBookingData()));
+}elseif (isset($_REQUEST["admin_add_country"])) {
+echo(json_encode($cq->getAllCountryData()));
 }

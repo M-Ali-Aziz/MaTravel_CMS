@@ -8,7 +8,8 @@ $cq = New ContentQueries("127.0.0.1","matravel_CMS_db","root","mysql");
 if (isset($_REQUEST["admin_add_contacts"])) {
   //save page and echo ContentQueries response
   echo(json_encode($cq->saveNewContact($_REQUEST["admin_add_contacts"])));
-}elseif (isset($_REQUEST["admin_add_booking"])) {
-  //save page and echo ContentQueries response
+}else if (isset($_REQUEST["admin_add_booking"])) {
   echo(json_encode($cq->saveNewBooking($_REQUEST["admin_add_booking"])));
+}else if (isset($_REQUEST["admin_add_country"])){
+	echo(json_encode($cq->saveNewCountry($_REQUEST["admin_add_country"])));
 }

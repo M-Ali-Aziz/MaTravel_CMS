@@ -44,7 +44,7 @@ class ContentQueries extends PDOHelper {
 		*
 	*/
 
-	//finction to save booking data ti DB
+	//finction to save booking data to DB
 	public function saveNewBooking($admin_add_booking){
 		//sql query
 		$sql = "INSERT INTO booking_sites (name, body, url)
@@ -63,6 +63,33 @@ class ContentQueries extends PDOHelper {
 	}
 
   // ------------------------------------------------------------------------------
+
+
+	/*
+		*
+		* $sql to INSERT INTO or SELECT "country" info to/from DB 
+		*
+	*/
+
+	//finction to save counrty data to DB
+	public function saveNewCountry($admin_add_country){
+		//sql query
+		$sql = "INSERT INTO countries (name, body, history, geography, climate, capital_name, capital_body, top1_name, top1_body, top2_name, top2_body, top3_name, top3_body, top4_name, top4_body, top5_name, top5_body)
+		VALUES (:name, :body, :history, :geography, :climate, :capital_name, :capital_body, :top1_name, :top1_body, :top2_name, :top2_body, :top3_name, :top3_body, :top4_name, :top4_body, :top5_name, :top5_body)";
+
+		// insert to the country table in DB
+		$this->query($sql, $admin_add_country);
+
+		return true;
+		}
+		
+		// function to get all country info from DB
+		function getAllCountryData(){
+		$sql = "SELECT name, body, history, geography, climate, capital_name, capital_body, top1_name, top1_body, top2_name, top2_body, top3_name, top3_body, top4_name, top4_body, top5_name, top5_body FROM countries";
+	    return $this->query($sql);
+		}
+
+	  // ------------------------------------------------------------------------------
 
 
 

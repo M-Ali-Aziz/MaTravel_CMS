@@ -15,6 +15,8 @@ $(function(){
 	$("#homePageGallery").show();
 
 
+
+
 	// // hide the admin country form
 	// $('#add_country').hide();
 	// // hide the admin booking form
@@ -22,7 +24,17 @@ $(function(){
 	// // hide the admin contact form
 	// $('#add_contact').hide();
 
-	// show the admin country form when click in the admin menu
+	// show the country info when click in the countries menu
+	$( "#submenuCounName" ).click(function() {
+		$("#mainSection section").hide();
+		$("footer").show();
+		// $('#add_booking').hide();
+		// $('#add_contact').hide();
+		$('section #country_content').show();
+		return getCountryInfo();
+	});
+
+	// show the booking sites when click in the booking menu
 	$( "#bookingMenuLink" ).click(function() {
 		$("#mainSection section").hide();
 		$("footer").show();
@@ -144,6 +156,7 @@ $(function(){
 				console.log("getContactInfo error: ", data.responseText);
 			}
 		});
+    return true;
 	}
 
 	//function to list new contact info footer(HTML)
@@ -234,6 +247,7 @@ $(function(){
 				console.log("getContactInfo error: ", data.responseText);
 			}
 		});
+    return true;
 	}
 
 	//function to list new booking sites info to(HTML)
@@ -266,6 +280,193 @@ $(function(){
 	// Run function to print all booking sites info to html
 	getBookingInfo();
 	// ------------------------------------------------------------------------------
+
+
+	/*
+		*
+		* post and get country info
+		*
+	*/
+
+	// --- POST data to DB ---
+
+	//Submit handler to get the info from the admin country form
+	$('#add_country form').submit(function(){
+		// make the data from the form as an array
+		var adminCountryInfo = {
+			":name" : $("#coun_name").val(),
+			":body" :  $("#coun_body").val(),
+			":history" :  $("#his_body").val(),
+			":geography" :  $("#geo_body").val(),
+			":climate" :  $("#cli_body").val(),
+			":capital_name" :  $("#cap_name").val(),
+			":capital_body" :  $("#cap_body").val(),
+			"top1_name" :  $("#top1_name").val(),
+			"top1_body" :  $("#top1_body").val(),
+			"top2_name" :  $("#top2_name").val(),
+			"top2_body" :  $("#top2_body").val(),
+			"top3_name" :  $("#top3_name").val(),
+			"top3_body" :  $("#top3_body").val(),
+			"top4_name" :  $("#top4_name").val(),
+			"top4_body" :  $("#top4_body").val(),
+			"top5_name" :  $("#top5_name").val(),
+			"top5_body" :  $("#top5_body").val()
+		};
+
+		console.log("adminCountryInfo: ", adminCountryInfo);
+
+
+		// AJAX call to post data to DB
+		$.ajax({
+			url : "php/save_content.php",
+			type : "post",
+			dataType : "json",
+			data : {
+				"admin_add_country" : adminCountryInfo
+			},
+			success : function(data){
+				console.log("success saved adminCountryInfo:", data);
+			},
+			error : function(data){
+				console.log("error saved adminCountryInfo:", data);
+			}
+
+		});
+
+		return false;
+	});
+
+
+	// --- GET data from DB and print to html ---
+
+	//function to get country info from DB.
+	function getCountryInfo(admin_add_country){
+		$.ajax({
+			url : "php/get_content.php",
+			type : "get",
+			dataType : "json",
+			data : {
+				"admin_add_country" : "admin_add_country"
+			},
+			success : getAllCountryInfo,
+			error: function(data) {
+				console.log("getCountryInfo error: ", data.responseText);
+			}
+		});
+    return true;
+	}
+
+	//function to list new country info to(HTML)
+	function getAllCountryInfo(data){
+		// console.log("getBookingInfo data: ", data);
+
+		// remove all li in <ul id="submenuCounName">
+		$('#submenuCounName li').remove();
+		// remove all div in <section id="country_content">
+		$('#country_content div').remove();
+
+		// loop throw all country info fron DB
+		for (var i = 0; i < data.length; i++) {
+			for (var obj in data[i]){
+				// build html for menu and print the country name in submenu
+				var newCountryName = $(
+					'<li><a href="#'+data[i].name+'">'+data[i].name+'</a></li>');
+				// build html tag to print the country info
+				var newCountryInfo = $(
+					'<div id='+data[i].name+'>'+
+
+						'<div class="thumbnail">'+
+						'<div class="caption">'+
+							'<h3>'+data[i].name+'</h3>'+
+							'<p>'+data[i].body+'</p>'+
+						'</div>'+
+						'</div><br><br>'+
+
+						'<div class="thumbnail">'+
+						'<div class="caption">'+
+							'<h3>History</h3>'+
+							'<p>'+data[i].history+'</p>'+
+						'</div>'+
+						'</div><br><br>'+
+
+						'<div class="thumbnail">'+
+						'<div class="caption">'+
+							'<h3>Geography</h3>'+
+							'<p>'+data[i].geography+'</p>'+
+						'</div>'+
+						'</div><br><br>'+
+
+						'<div class="thumbnail">'+
+						'<div class="caption">'+
+							'<h3>climate</h3>'+
+							'<p>'+data[i].climate+'</p>'+
+						'</div>'+
+						'</div><br><br>'+
+
+						'<div class="thumbnail">'+
+						'<div class="caption">'+
+							'<h3>Capital</h3>'+
+							'<h4>'+data[i].capital_name+'</h4>'+
+							'<p>'+data[i].capital_body+'</p>'+
+						'</div>'+
+						'</div><br><br>'+
+
+						'<h2>Top 5 sights:</h2><br>'+
+
+						'<div class="thumbnail">'+
+						'<div class="caption">'+
+							'<h3>'+data[i].top1_name+'</h3>'+
+							'<p>'+data[i].top1_body+'</p>'+
+						'</div>'+
+						'</div><br><br>'+
+
+						'<div class="thumbnail">'+
+						'<div class="caption">'+
+							'<h3>'+data[i].top2_name+'</h3>'+
+							'<p>'+data[i].top2_body+'</p>'+
+						'</div>'+
+						'</div><br><br>'+
+
+						'<div class="thumbnail">'+
+						'<div class="caption">'+
+							'<h3>'+data[i].top3_name+'</h3>'+
+							'<p>'+data[i].top3_body+'</p>'+
+						'</div>'+
+						'</div><br><br>'+
+
+						'<div class="thumbnail">'+
+						'<div class="caption">'+
+							'<h3>'+data[i].top4_name+'</h3>'+
+							'<p>'+data[i].top4_body+'</p>'+
+						'</div>'+
+						'</div><br><br>'+
+
+						'<div class="thumbnail">'+
+						'<div class="caption">'+
+							'<h3>'+data[i].top5_name+'</h3>'+
+							'<p>'+data[i].top5_body+'</p>'+
+						'</div>'+
+						'</div><br><br>'+
+
+						'</div>');
+			}
+				// just for testing
+				// console.log("data[i]: ",data[i]);
+				// console.log("data[i].name: ",data[i].name);
+				// console.log("data[i].body: ",data[i].body);
+				// console.log("data[i].url: ",data[i].top1_name);
+				
+			// show and print country name to ul menu 
+			$('#submenuCounName').append(newCountryName);
+			// show and print country data to body
+			$('#country_content').append(newCountryInfo);
+		}
+	}
+
+	// Run function to print all booking sites info to html
+	getCountryInfo();
+	// ------------------------------------------------------------------------------
+
 
 
 	/*
