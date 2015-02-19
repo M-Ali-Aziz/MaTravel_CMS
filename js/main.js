@@ -9,30 +9,26 @@ $(function(){
 
 	// hide all sections in main tag 
 	$("#mainSection section").hide();
-
-
-	
+	// show page gallery on home page 
 	$("#homePageGallery").show();
 
-
-
-
-	// // hide the admin country form
-	// $('#add_country').hide();
-	// // hide the admin booking form
-	// $('#add_booking').hide();
-	// // hide the admin contact form
-	// $('#add_contact').hide();
-
-	// show the country info when click in the countries menu
-	$( "#submenuCounName" ).click(function() {
+	// show the country info when click in the countries menu - - - - - - 
+	function showCountry(){
+		// Get the hash part of the URL
+		var l = location.hash;
+		// If the hash part of the url is empty then do nothing more (return)
+		if(l === ""){return;}
+		// Otherwise assume that l is a country
+		// Show and hide som elements
 		$("#mainSection section").hide();
 		$("footer").show();
-		// $('#add_booking').hide();
-		// $('#add_contact').hide();
-		$('section #country_content').show();
-		return getCountryInfo();
-	});
+		$('#country_content').show();
+		// Only show the chosen country
+		$('#country_content > *').hide();
+		$(l).show();
+	}
+	$(window).on('hashchange',showCountry);
+	// - - - - - - - - - - - - - - - - - -
 
 	// show the booking sites when click in the booking menu
 	$( "#bookingMenuLink" ).click(function() {
@@ -40,7 +36,7 @@ $(function(){
 		$("footer").show();
 		// $('#add_booking').hide();
 		// $('#add_contact').hide();
-		$('section #booking_content').show();
+		$('#booking_content').show();
 		return getBookingInfo();
 	});
 
@@ -376,6 +372,7 @@ $(function(){
 					'<div id='+data[i].name+'>'+
 
 						'<div class="thumbnail">'+
+			      '<img src="img/'+data[i].name+'.jpg'+'">'+
 						'<div class="caption">'+
 							'<h3>'+data[i].name+'</h3>'+
 							'<p>'+data[i].body+'</p>'+
@@ -460,6 +457,9 @@ $(function(){
 			$('#submenuCounName').append(newCountryName);
 			// show and print country data to body
 			$('#country_content').append(newCountryInfo);
+
+			// Show correct country if there is a country hash in the url
+			showCountry();
 		}
 	}
 
