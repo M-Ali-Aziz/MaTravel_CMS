@@ -1,4 +1,4 @@
-// wait for DOM ready
+// Wait for the DOM to load then run start
 $(function(){
 
 	/*
@@ -11,6 +11,7 @@ $(function(){
 	$("#mainSection section").hide();
 	// show page gallery on home page 
 	$("#homePageGallery").show();
+
 
 	// show the country info when click in the countries menu - - - - - - 
 	function showCountry(){
@@ -69,15 +70,14 @@ $(function(){
 
 	// main menu active effect function
 	$(function() {
-   $("#menuMainUL li").click(function() {
-      // remove classes from all
-      $("li").removeClass("active");
-      // add class to the one we clicked
-      $(this).addClass("active");
-   });
-  });
-	// ------------------------------------------------------------------------------
-
+		$("#menuMainUL li").click(function() {
+			// remove classes from all
+			$("li").removeClass("active");
+			// add class to the one we clicked
+			$(this).addClass("active");
+		});
+	});
+  // ------------------------------------------------------------------
 
 	/*
 		*
