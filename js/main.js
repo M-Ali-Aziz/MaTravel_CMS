@@ -12,6 +12,8 @@ $(function(){
 	// show page gallery on home page 
 	$("#homePageGallery").show();
 
+	// $("#videoSection").show();
+
 
 	// show the country info when click in the countries menu - - - - - - 
 	function showCountry(){
@@ -35,18 +37,21 @@ $(function(){
 	$( "#bookingMenuLink" ).click(function() {
 		$("#mainSection section").hide();
 		$("footer").show();
-		// $('#add_booking').hide();
-		// $('#add_contact').hide();
 		$('#booking_content').show();
 		return getBookingInfo();
+	});
+
+	// show the video when click in the video menu
+	$( "#videoMenuLink" ).click(function() {
+		$("#mainSection section").hide();
+		$("footer").show();
+		$('#videoSection').show();
 	});
 
 	// show the admin country form when click in the admin menu
 	$( "#addNewCounMenuLi" ).click(function() {
 		$("#mainSection section").hide();
 		$("footer").hide();
-		// $('#add_booking').hide();
-		// $('#add_contact').hide();
 		return $('#add_country').show();
 	});
 
@@ -54,8 +59,6 @@ $(function(){
 	$( "#addBookingMenuLi" ).click(function() {
 		$("#mainSection section").hide();
 		$("footer").hide();
-		// $('#add_country').hide();
-		// $('#add_contact').hide();
 		return $('#add_booking').show();
 	});
 
@@ -63,8 +66,6 @@ $(function(){
 	$( "#addContactMenuLi" ).click(function() {
 		$("#mainSection section").hide();
 		$("footer").hide();
-		// $('#add_country').hide();
-		// $('#add_booking').hide();
 		return $('#add_contact').show();
 	});
 
@@ -309,7 +310,7 @@ $(function(){
 			"top5_body" :  $("#top5_body").val()
 		};
 
-		console.log("adminCountryInfo: ", adminCountryInfo);
+		// console.log("adminCountryInfo: ", adminCountryInfo);
 
 
 		// AJAX call to post data to DB
@@ -372,7 +373,7 @@ $(function(){
 					'<div id='+data[i].name+'>'+
 
 						'<div class="thumbnail">'+
-			      '<img src="img/'+data[i].name+'.jpg'+'">'+
+						// '<img src="img/'+data[i].name+'.jpg'+'">'+
 						'<div class="caption">'+
 							'<h3>'+data[i].name+'</h3>'+
 							'<p>'+data[i].body+'</p>'+
@@ -466,36 +467,5 @@ $(function(){
 	// Run function to print all booking sites info to html
 	getCountryInfo();
 	// ------------------------------------------------------------------------------
-
-
-
-	/*
-		*
-		* some help functions 
-		*
-	*/
-
-	// //setup push/pop-state pushPopListeners for <a> tags ----- ???
-	// function pushPopListeners() {
-	// 	// When we click a link
-	// 	$(document).on("click","a",function(event){
-	// 		//if the user clicks a real http:// || https:// link,
-	// 		if ($(this).attr("href").indexOf("://") >=0) {
-	// 		//assume they are leaving the site
-	// 		return;
-	// }
-	// //prevent "empty" urls from affecting browsing
-	// if ($(this).attr("href") && $(this).attr("href") !== "#") {
-	// 	goTo($(this).attr("href"));
-	// }
-	// event.preventDefault();
-	// });
-
-	// ------------------------------------------------------------------------------
-
-
-
-
-
 
 });
